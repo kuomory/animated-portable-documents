@@ -8,30 +8,8 @@ import {
   Stack,
 } from "@mantine/core";
 import { IconDownload } from "@tabler/icons-react";
+import { Link } from "@tanstack/react-router";
 import { useCallback, useState } from "react";
-
-// type ShowSaveFilePickerType = (options?: {
-//   suggestedName?: string;
-//   types?: Array<{
-//     description?: string;
-//     accept?: Record<string, string[]>;
-//   }>;
-//   excludeAcceptAllOption?: boolean;
-// }) => Promise<FileSystemFileHandle>;
-// type ShowOpenFilePickerType = (options?: {
-//   multiple?: boolean;
-//   excludeAcceptAllOption?: boolean;
-//   types?: Array<{
-//     description?: string;
-//     accept?: Record<string, string[]>;
-//   }>;
-// }) => Promise<FileSystemFileHandle[]>;
-
-// type WindowWithShowSaveFilePicker = Window &
-//   typeof globalThis & {
-//     showSaveFilePicker?: ShowSaveFilePickerType;
-//     showOpenFilePicker?: ShowOpenFilePickerType;
-//   };
 
 export default function Edit() {
   const [fileName, setFileName] = useState(
@@ -58,49 +36,22 @@ export default function Edit() {
   }, [fileName]);
 
   return (
-    <AppShell header={{ height: "4rem" }}>
+    <AppShell
+      header={{ height: "4rem" }}
+      navbar={{ width: "20%", breakpoint: "sm" }}
+    >
       <AppShell.Header>
         <Group h="100%" px="md" justify="space-between">
-          <Text
-            variant="gradient"
-            gradient={{ from: "indigo", to: "grape", deg: 45 }}
-            size="1rem"
-            lh="0.9rem"
-            fw="normal"
-          >
-            <span
-              style={{
-                fontWeight: "bold",
-                fontStyle: "normal",
-                fontSize: "1.1rem",
-              }}
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <Text
+              variant="gradient"
+              gradient={{ from: "indigo", to: "grape", deg: 45 }}
+              size="1.75rem"
+              fw="normal"
             >
-              P
-            </span>
-            ortable
-            <br />
-            <span
-              style={{
-                fontWeight: "bold",
-                fontStyle: "normal",
-                fontSize: "1.1rem",
-              }}
-            >
-              B
-            </span>
-            rowser
-            <br />
-            <span
-              style={{
-                fontWeight: "bold",
-                fontStyle: "normal",
-                fontSize: "1.1rem",
-              }}
-            >
-              P
-            </span>
-            resenter
-          </Text>
+              Lu:Fu
+            </Text>
+          </Link>
           <Group>
             <TextInput
               value={fileName}
@@ -125,6 +76,7 @@ export default function Edit() {
           <Stack>Main</Stack>
         </Container>
       </AppShell.Main>
+      <AppShell.Navbar>スライド</AppShell.Navbar>
     </AppShell>
   );
 }
